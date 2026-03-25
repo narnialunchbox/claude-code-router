@@ -3,6 +3,7 @@ import { readConfigFile, writeConfigFile, backupConfigFile } from "./utils";
 import { checkForUpdates, performUpdate } from "./utils";
 import { join } from "path";
 import fastifyStatic from "@fastify/static";
+import { mcpHandler } from "./protocols/mcp";
 
 export const createServer = (config: any): Server => {
   const server = new Server(config);
@@ -62,6 +63,26 @@ export const createServer = (config: any): Server => {
   // Redirect /ui to /ui/ for proper static file serving
   server.app.get("/ui", async (_, reply) => {
     return reply.redirect("/ui/");
+  });
+
+  // MCP (Model Context Protocol) endpoint
+  server.app.post("/mcp", async (req, reply) => {
+    try {
+      const result = await mcpHandler.handleMessage(req.body);
+      return result;
+    } catch (error: any) {
+      reply.status(500).send({ error: error.message });
+    }
+  });
+
+  // MCP tools listing
+  server.app.get("/mcp/tools", async () => {
+    return { tools: mcpHandler.getTools() };
+  });
+
+  // MCP servers listing
+  server.app.get("/mcp/servers", async () => {
+    return { servers: mcpHandler.getServers() };
   });
   
   // 版本检查端点

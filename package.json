@@ -1,9 +1,12 @@
 {
   "name": "@musistudio/claude-code-router",
   "version": "1.0.43",
-  "description": "Use Claude Code without an Anthropics account and route it to another LLM provider",
+  "description": "ACPRMCPP: Universal AI CLI router for Claude Code, Gemini CLI, GitHub Copilot CLI, and more",
   "bin": {
-    "ccr": "./dist/cli.js"
+    "ccr": "./dist/cli.js",
+    "gcr": "./dist/gcr.js",
+    "ghcr": "./dist/ghcr.js",
+    "jcr": "./dist/jcr.js"
   },
   "scripts": {
     "build": "node scripts/build.js",
@@ -14,7 +17,12 @@
     "code",
     "router",
     "llm",
-    "anthropic"
+    "anthropic",
+    "gemini",
+    "copilot",
+    "mcp",
+    "acprmcpp",
+    "ai-router"
   ],
   "author": "musistudio",
   "license": "MIT",

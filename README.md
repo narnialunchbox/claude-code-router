@@ -1,22 +1,58 @@
 # Claude Code Router
 
+**Now with ACPRMCPP: Universal AI CLI Router** 🚀
+
+Route requests from **Claude Code**, **Gemini CLI**, **GitHub Copilot CLI**, and **Jules** through a unified interface to any LLM provider!
+
 I am seeking funding support for this project to better sustain its development. If you have any ideas, feel free to reach out to me: [m@musiiot.top](mailto:m@musiiot.top)
 
+[中文版](README_zh.md) | [ACPRMCPP Architecture →](ACPRMCPP.md)
 
-[中文版](README_zh.md)
-
-> A powerful tool to route Claude Code requests to different models and customize any request.
+> A powerful tool to route AI CLI requests to different models and customize any request.
 
 ![](blog/images/claude-code.png)
 
+## 🌟 What's New: ACPRMCPP
+
+**ACPRMCPP** (Agent Client Protocol Router Model Content Protocol Plus) extends Claude Code Router to support multiple AI CLIs:
+
+- **CCR** (`ccr`) - Claude Code Router (original)
+- **GCR** (`gcr`) - Gemini CLI Router ✨ NEW
+- **GHCR** (`ghcr`) - GitHub Copilot CLI Router ✨ NEW
+- **JCR** (`jcr`) - Jules CLI Router ✨ NEW
+
+All CLIs now share the same powerful routing engine, allowing you to:
+- Use **any LLM provider** with **any AI CLI**
+- Route different task types to different models
+- Optimize costs and performance
+- Work with local or cloud models
+
+[Learn more about ACPRMCPP →](ACPRMCPP.md)
+
 ## ✨ Features
 
+### Core Features
+- **Universal AI CLI Routing**: Route Claude Code, Gemini CLI, GitHub Copilot CLI, and Jules through one system
 - **Model Routing**: Route requests to different models based on your needs (e.g., background tasks, thinking, long context).
 - **Multi-Provider Support**: Supports various model providers like OpenRouter, DeepSeek, Ollama, Gemini, Volcengine, and SiliconFlow.
+- **MCP Support**: Model Context Protocol integration for Gemini CLI and Copilot CLI
 - **Request/Response Transformation**: Customize requests and responses for different providers using transformers.
 - **Dynamic Model Switching**: Switch models on-the-fly within Claude Code using the `/model` command.
 - **GitHub Actions Integration**: Trigger Claude Code tasks in your GitHub workflows.
 - **Plugin System**: Extend functionality with custom transformers.
+
+### New CLI Wrappers
+
+```bash
+# Gemini CLI through ACPRMCPP
+gcr "Explain quantum computing"
+
+# GitHub Copilot CLI through ACPRMCPP
+ghcr "How do I optimize this SQL query?"
+
+# Jules (Google's autonomous coding agent)
+jcr "Fix the authentication bug in auth.ts"
+```
 
 ## 🚀 Getting Started
 

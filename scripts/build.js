@@ -10,7 +10,19 @@ try {
   // Build the main CLI application
   console.log('Building CLI application...');
   execSync('esbuild src/cli.ts --bundle --platform=node --outfile=dist/cli.js', { stdio: 'inherit' });
-  
+
+  // Build Gemini CLI wrapper (GCR)
+  console.log('Building Gemini CLI wrapper...');
+  execSync('esbuild src/cli-wrappers/gemini.ts --bundle --platform=node --outfile=dist/gcr.js', { stdio: 'inherit' });
+
+  // Build GitHub Copilot CLI wrapper (GHCR)
+  console.log('Building GitHub Copilot CLI wrapper...');
+  execSync('esbuild src/cli-wrappers/copilot.ts --bundle --platform=node --outfile=dist/ghcr.js', { stdio: 'inherit' });
+
+  // Build Jules CLI wrapper (JCR)
+  console.log('Building Jules CLI wrapper...');
+  execSync('esbuild src/cli-wrappers/jules.ts --bundle --platform=node --outfile=dist/jcr.js', { stdio: 'inherit' });
+
   // Copy the tiktoken WASM file
   console.log('Copying tiktoken WASM file...');
   execSync('shx cp node_modules/tiktoken/tiktoken_bg.wasm dist/tiktoken_bg.wasm', { stdio: 'inherit' });
